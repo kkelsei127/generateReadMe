@@ -1,5 +1,5 @@
 const inquirer = require("inquirer")
-
+const fs = require('fs')
 
 //prompts for user
 const prompts = [{
@@ -36,3 +36,48 @@ const prompts = [{
     name:'Email'
 }
 ]
+
+function createTemplate(data){
+    return `# ${data.Title}
+
+## Description
+${data.Description}
+
+## Installation
+${data.Installation}
+
+## Usages
+${data.Usages}
+
+## Contributors
+${data.contributions}
+
+## Testing
+${data.Test}
+
+## Contact Info
+### GitHub: ${data['Github Username']}
+
+### Email: ${data.Email}
+
+`
+}
+
+function init(){
+    inquirer.prompt(prompts)
+    .then((data) => {
+        console.log(data)
+        fs.writeFile('README.md', createTemplate(data), ()=> {
+            console.log('success')
+        })
+    })
+    .catch((error) => {
+        if (error.isTtyError){
+            console.log(error)
+        } else {
+            console.log(error)
+        }
+    })
+}
+
+init()
