@@ -1,6 +1,5 @@
 const inquirer = require("inquirer")
 const fs = require('fs')
-// const utils = require('utils')
 const generateMarkdown = require("./utils/generateMarkdown")
 
 
@@ -46,6 +45,7 @@ const prompts = [{
 }
 ]
 
+//create readme based off user input
 function init(){
     inquirer.prompt(prompts)
     .then((data) => {
