@@ -1,5 +1,9 @@
 const inquirer = require("inquirer")
 const fs = require('fs')
+// const utils = require('utils')
+const generateMarkdown = require("./utils/generateMarkdown")
+
+
 
 //prompts for user
 const prompts = [{
@@ -7,6 +11,11 @@ const prompts = [{
     message: 'What is the projects name?',
     name: 'Title'
 }, {
+    type: 'list',
+    message: 'What license did you use (use arrow keys)?',
+    choices: ['MIT', 'ISC', 'Zlib'],
+    name:'License'
+},{
     type: 'input',
     message: 'What is purpose of this project? Give a detailed description.',
     name: 'Description'
@@ -29,7 +38,7 @@ const prompts = [{
 }, {
     type:'input',
     message:'What is your GitHub username?',
-    name:'Github Username'
+    name:'Github'
 }, {
     type:'input',
     message:'What is your email address?',
@@ -37,37 +46,11 @@ const prompts = [{
 }
 ]
 
-function createTemplate(data){
-    return `# ${data.Title}
-
-## Description
-${data.Description}
-
-## Installation
-${data.Installation}
-
-## Usages
-${data.Usages}
-
-## Contributors
-${data.contributions}
-
-## Testing
-${data.Test}
-
-## Contact Info
-### GitHub: ${data['Github Username']}
-
-### Email: ${data.Email}
-
-`
-}
-
 function init(){
     inquirer.prompt(prompts)
     .then((data) => {
         console.log(data)
-        fs.writeFile('README.md', createTemplate(data), ()=> {
+        fs.writeFile('README.md', generateMarkdown(data), ()=> {
             console.log('success')
         })
     })
