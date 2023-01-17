@@ -1,4 +1,4 @@
-# the art of reading
+# ReadMe Generator
 
   ## License
   [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
@@ -12,19 +12,19 @@
   - [Contact Info](#contact-info)
 
   ## Description
-  
+  To create readme files
 
   ## Installation
-  ddc
+  NPM
   
   ## Usages
-  sssss
+  The intention is to use it to create files
   
   ## Contributors
-  ss
+  None
   
   ## Testing
-  aaa
+  Very carefully
   
   ## Contact Info
   ### GitHub: [kkelsei127](https://github.com/kkelsei127)
