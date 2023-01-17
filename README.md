@@ -1,6 +1,7 @@
 # ReadMe Generator
 
   ## License
+  No licenses were used, example of a badge:
   [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
   ## Table of Contents
